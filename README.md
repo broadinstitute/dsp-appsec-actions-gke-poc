@@ -3,8 +3,8 @@ PoC for Sysbox rootless Docker on GKE
 
 1. Set up a GKE cluster according to https://github.com/nestybox/sysbox/blob/master/docs/user-guide/install-k8s-cloud.md
     * You can assign node pool label `sysbox-install=yes` (not be be confused with cluster label) right at deploy time.
-    * Use Workload Identity or a [least-privilege Service Account for the nodes](https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster)
-      * Otherwise, the SA token can be easily exposed via Actions! 
+    * Use [Metadata Concealment](https://cloud.google.com/kubernetes-engine/docs/how-to/protecting-cluster-metadata#concealment), [Workload Identity](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity) and/or a [least-privilege Service Account for the nodes](https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster)
+      * ⚠️ Otherwise, the SA token can be easily exposed via Actions and do unintentional harm 🙂
 
 2. Create Sysbox resources:
     ```
