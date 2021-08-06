@@ -19,3 +19,4 @@ jobs:
       - run: whoami
       - run: docker run --rm hello-world
       - run: echo "🍏 This job's status is ${{ job.status }}."
+
