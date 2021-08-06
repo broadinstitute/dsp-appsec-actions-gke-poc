@@ -16,13 +16,13 @@ PoC for Sysbox rootless Docker on GKE
     apiVersion: v1
     kind: Pod
     metadata:
-      name: ubu-bio-systemd-docker
+      name: gh-runner
       annotations:
         io.kubernetes.cri-o.userns-mode: "auto:size=65536"
     spec:
       runtimeClassName: sysbox-runc
       containers:
-      - name: ubu-bio-systemd-docker
+      - name: gh-runner
         image: registry.nestybox.com/nestybox/ubuntu-bionic-systemd-docker
         command: ["/sbin/init"]
       restartPolicy: Never
@@ -30,9 +30,9 @@ PoC for Sysbox rootless Docker on GKE
 
 4. Enter the pod and run a sample Docker rootless 🎉 container in it:
     ```
-    ❯ kubectl exec ubu-bio-systemd-docker -it bash
+    ❯ kubectl exec gh-runner -it bash
     kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl exec [POD] -- [COMMAND] instead.
-    root@ubu-bio-systemd-docker:/# docker run --rm -it alpine
+    root@gh-runner:/# docker run --rm -it alpine
     Unable to find image 'alpine:latest' locally
     latest: Pulling from library/alpine
     29291e31a76a: Pull complete 
@@ -40,11 +40,11 @@ PoC for Sysbox rootless Docker on GKE
     Status: Downloaded newer image for alpine:latest
     ```
 
-5. If you want to [set up a custom GitHub runner](https://docs.github.com/en/actions/hosting-your-own-runners/adding-self-hosted-runners):
+5. If you want to [set up a custom GitHub Actions runner](https://docs.github.com/en/actions/hosting-your-own-runners/adding-self-hosted-runners):
     * Replace `${GH_REPO_URL}` `${GH_TOKEN}` with the values from your repo's _Settings/Actions/Runners/Add Runner_ page
     ```
-    ❯ kubectl exec ubu-bio-systemd-docker -it bash
-    root@ubu-bio-systemd-docker:/#
+    ❯ kubectl exec gh-runner -it bash
+    root@gh-runner:/#
     apt-get update && apt-get install libdigest-sha-perl -y
     mkdir actions-runner && cd actions-runner
     curl -o actions-runner-linux-x64-2.279.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.279.0/actions-runner-linux-x64-2.279.0.tar.gz
@@ -55,3 +55,4 @@ PoC for Sysbox rootless Docker on GKE
     sudo -u gh-runner ./config.sh --url ${GH_REPO_URL} --token ${GH_TOKEN}
     sudo -u gh-runner ./run.sh
     ```
+    * Check this repos's example Action and the results of its run!
