@@ -51,7 +51,7 @@ PoC for Sysbox rootless Docker on GKE
     echo "50d21db4831afe4998332113b9facc3a31188f2d0c7ed258abf6a0b67674413a  actions-runner-linux-x64-2.279.0.tar.gz" | shasum -a 256 -c
     tar xzf ./actions-runner-linux-x64-2.279.0.tar.gz
     ./bin/installdependencies.sh
-    useradd -m gh-runner
+    useradd -m gh-runner -G docker
     sudo -u gh-runner ./config.sh --url ${GH_REPO_URL} --token ${GH_TOKEN}
     sudo -u gh-runner ./run.sh
     ```
