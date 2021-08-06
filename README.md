@@ -39,3 +39,19 @@ PoC for Sysbox rootless Docker on GKE
     Digest: sha256:eb3e4e175ba6d212ba1d6e04fc0782916c08e1c9d7b45892e9796141b1d379ae
     Status: Downloaded newer image for alpine:latest
     ```
+
+5. If you want to [set up a custom GitHub runner](https://docs.github.com/en/actions/hosting-your-own-runners/adding-self-hosted-runners):
+    * Replace `${GH_REPO_URL}` `${GH_TOKEN}` with the values from your repo's _Settings/Actions/Runners/Add Runner_ page
+    ```
+    ❯ kubectl exec ubu-bio-systemd-docker -it bash
+    root@ubu-bio-systemd-docker:/#
+    apt-get update && apt-get install libdigest-sha-perl -y
+    mkdir actions-runner && cd actions-runner
+    curl -o actions-runner-linux-x64-2.279.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.279.0/actions-runner-linux-x64-2.279.0.tar.gz
+    echo "50d21db4831afe4998332113b9facc3a31188f2d0c7ed258abf6a0b67674413a  actions-runner-linux-x64-2.279.0.tar.gz" | shasum -a 256 -c
+    tar xzf ./actions-runner-linux-x64-2.279.0.tar.gz
+    ./bin/installdependencies.sh
+    useradd -m gh-runner
+    sudo -u gh-runner ./config.sh --url ${GH_REPO_URL} --token ${GH_TOKEN}
+    sudo -u gh-runner ./run.sh
+    ```
