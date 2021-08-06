@@ -14,6 +14,6 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: whoami
       - run: docker run --rm hello-world
+      - run: echo "🍏 This job's status is ${{ job.status }}."
