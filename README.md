@@ -1,4 +1,7 @@
 # dsp-appsec-sysbox-gke-poc
+
+![status](https://github.com/broadinstitute/dsp-appsec-sysbox-gke-poc/actions/workflows/github-actions-demo.yml/badge.svg)
+
 PoC for Sysbox rootless Docker on GKE
 
 1. Set up a GKE cluster according to https://github.com/nestybox/sysbox/blob/master/docs/user-guide/install-k8s-cloud.md
