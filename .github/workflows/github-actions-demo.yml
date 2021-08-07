@@ -2,7 +2,7 @@ name: GitHub Workflow Demo on GKE
 on: [push] # pull_request is also possible, and for forked PRs will require approval from a repo maintainer to run
 
 jobs:
-  Explore-GitHub-Actions:
+  GKE-Runner-Demo:
     runs-on: self-hosted # this line makes it run on GKE
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
