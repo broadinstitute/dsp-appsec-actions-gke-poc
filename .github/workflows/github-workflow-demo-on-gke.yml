@@ -1,6 +1,9 @@
 name: GitHub Workflow Demo on GKE
 on: [push] # pull_request is also possible, and for forked PRs will require approval from a repo maintainer to run
 
+permissions:
+  contents: read # it's important to limit repo token permissions to avoid unintentional changes
+
 jobs:
   GKE-Runner-Demo:
     runs-on: self-hosted # this line makes it run on GKE
