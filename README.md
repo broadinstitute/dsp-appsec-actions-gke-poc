@@ -2,7 +2,7 @@
 
 ![status](https://github.com/broadinstitute/dsp-appsec-sysbox-gke-poc/actions/workflows/github-workflow-demo-on-gke.yml/badge.svg)
 
-PoC for a GitHub Actions runner on GKE, using [Sysbox](https://github.com/nestybox/sysbox) rootless Docker runtime.
+PoC for a GitHub Actions runner on GKE, using [Sysbox](https://github.com/nestybox/sysbox) rootless OCI/Docker runtime.
 
 1. Set up a GKE cluster according to https://github.com/nestybox/sysbox/blob/master/docs/user-guide/install-k8s-cloud.md
     * Assign **node pool** label `sysbox-install=yes` (not be be confused with a _cluster_ label) at deploy time
