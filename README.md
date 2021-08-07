@@ -35,6 +35,7 @@ PoC for a GitHub Actions runner on GKE, using [Sysbox](https://github.com/nestyb
 
 4.  Enter the pod and set up a [custom GitHub Actions runner](https://docs.github.com/en/actions/hosting-your-own-runners/adding-self-hosted-runners):
     * Replace `${GH_REPO_URL}` `${GH_TOKEN}` with the values from your repo's _Settings/Actions/Runners/Add Runner_ page
+      * This can also be done at [org level](https://docs.github.com/en/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)  
     ```
     ❯ kubectl exec gh-runner -it bash
     root@gh-runner:/#
