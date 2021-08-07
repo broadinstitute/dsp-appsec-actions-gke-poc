@@ -48,4 +48,4 @@ PoC for a GitHub Actions runner on GKE, using [Sysbox](https://github.com/nestyb
     sudo -u gh-runner ./config.sh --url ${GH_REPO_URL} --token ${GH_TOKEN}
     sudo -u gh-runner ./run.sh
     ```
-    * Check this repo's [example Workflow](.github/workflows/github-workflow-demo-on-gke.yml) and the results of its run!
+    * Check this repo's [example Workflow](.github/workflows/github-workflow-demo-on-gke.yml) and the [results](https://github.com/broadinstitute/dsp-appsec-actions-gke-poc/actions/workflows/github-workflow-demo-on-gke.yml) of its run!
