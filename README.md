@@ -5,7 +5,7 @@
 PoC for a GitHub Actions runner on GKE, using [Sysbox](https://github.com/nestybox/sysbox) rootless Docker runtime.
 
 1. Set up a GKE cluster according to https://github.com/nestybox/sysbox/blob/master/docs/user-guide/install-k8s-cloud.md
-    * You can assign node pool label `sysbox-install=yes` (not be be confused with cluster label) right at deploy time.
+    * Assign node pool label `sysbox-install=yes` (not be be confused with cluster label) at deploy time
     * Use [Metadata Concealment](https://cloud.google.com/kubernetes-engine/docs/how-to/protecting-cluster-metadata#concealment), [Workload Identity](https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity) and/or a [least-privilege Service Account for the nodes](https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster)
       * ⚠️ Otherwise, the SA token can be easily exposed via Actions and do unintentional harm 🙂
 
