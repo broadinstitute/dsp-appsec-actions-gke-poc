@@ -1,8 +1,11 @@
 name: GitHub Workflow Demo on GKE
 on: [push] # pull_request is also possible, and for forked PRs will require approval from a repo maintainer to run
 
+# it's important to limit repo token permissions to avoid unintentional changes;
+# however, consider also setting secure defaults via repo/org policy:
+# https://docs.github.com/en/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token
 permissions:
-  contents: read # it's important to limit repo token permissions to avoid unintentional changes
+  contents: read
 
 jobs:
   GKE-Runner-Demo:
