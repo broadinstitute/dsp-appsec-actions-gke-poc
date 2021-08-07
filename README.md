@@ -2,7 +2,7 @@
 
 ![status](https://github.com/broadinstitute/dsp-appsec-sysbox-gke-poc/actions/workflows/github-workflow-demo-on-gke.yml/badge.svg)
 
-PoC for Sysbox rootless Docker on GKE
+PoC for a GitHub Actions runner on GKE, using [Sysbox](https://github.com/nestybox/sysbox) rootless Docker runtime.
 
 1. Set up a GKE cluster according to https://github.com/nestybox/sysbox/blob/master/docs/user-guide/install-k8s-cloud.md
     * You can assign node pool label `sysbox-install=yes` (not be be confused with cluster label) right at deploy time.
@@ -33,19 +33,7 @@ PoC for Sysbox rootless Docker on GKE
       restartPolicy: Never
     ```
 
-4. Enter the pod and run a sample Docker rootless 🎉 container in it:
-    ```
-    ❯ kubectl exec gh-runner -it bash
-    kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl exec [POD] -- [COMMAND] instead.
-    root@gh-runner:/# docker run --rm -it alpine
-    Unable to find image 'alpine:latest' locally
-    latest: Pulling from library/alpine
-    29291e31a76a: Pull complete 
-    Digest: sha256:eb3e4e175ba6d212ba1d6e04fc0782916c08e1c9d7b45892e9796141b1d379ae
-    Status: Downloaded newer image for alpine:latest
-    ```
-
-5. If you want to [set up a custom GitHub Actions runner](https://docs.github.com/en/actions/hosting-your-own-runners/adding-self-hosted-runners):
+4.  Enter the pod and set up a [custom GitHub Actions runner](https://docs.github.com/en/actions/hosting-your-own-runners/adding-self-hosted-runners):
     * Replace `${GH_REPO_URL}` `${GH_TOKEN}` with the values from your repo's _Settings/Actions/Runners/Add Runner_ page
     ```
     ❯ kubectl exec gh-runner -it bash
