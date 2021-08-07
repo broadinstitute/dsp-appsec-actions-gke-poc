@@ -1,4 +1,4 @@
-# dsp-appsec-sysbox-gke-poc
+# dsp-appsec-actions-gke-poc
 
 ![status](https://github.com/broadinstitute/dsp-appsec-sysbox-gke-poc/actions/workflows/github-workflow-demo-on-gke.yml/badge.svg)
 
