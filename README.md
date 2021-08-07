@@ -60,4 +60,4 @@ PoC for Sysbox rootless Docker on GKE
     sudo -u gh-runner ./config.sh --url ${GH_REPO_URL} --token ${GH_TOKEN}
     sudo -u gh-runner ./run.sh
     ```
-    * Check this repo's [example Workflow](.github/workflows/github-actions-demo.yml) and the results of its run!
+    * Check this repo's [example Workflow](.github/workflows/github-workflow-demo-on-gke.yml) and the results of its run!
