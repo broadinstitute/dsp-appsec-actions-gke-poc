@@ -1,6 +1,6 @@
 # dsp-appsec-sysbox-gke-poc
 
-![status](https://github.com/broadinstitute/dsp-appsec-sysbox-gke-poc/actions/workflows/github-actions-demo.yml/badge.svg)
+![status](https://github.com/broadinstitute/dsp-appsec-sysbox-gke-poc/actions/workflows/github-workflow-demo-on-gke.yml/badge.svg)
 
 PoC for Sysbox rootless Docker on GKE
 
