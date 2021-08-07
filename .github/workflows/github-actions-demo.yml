@@ -1,8 +1,9 @@
 name: GitHub Actions Demo
-on: [push]
+on: [push] # pull_request is also possible, and for forked PRs will require approval from a repo maintainer to run
+
 jobs:
   Explore-GitHub-Actions:
-    runs-on: self-hosted
+    runs-on: self-hosted # this line makes it run on GKE
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: 🐧 This job is now running on a GKE instance
