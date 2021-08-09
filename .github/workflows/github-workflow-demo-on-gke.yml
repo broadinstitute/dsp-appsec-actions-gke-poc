@@ -22,19 +22,6 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}
-          
-      - name: 👀 Test workflow isolation
-        run: |
-          echo whoami $(whoami)
-          echo pwd $(pwd)
-          
-          echo existing files in ../:
-          ls -l ../
-          touch ../gh_run_${{github.run_id}}
-          
-          echo existing Containers
-          docker ps
-          
+          ls ${{ github.workspace }}          
       - run: docker run --rm hello-world
       - run: echo "🍏 This job's status is ${{ job.status }}."
