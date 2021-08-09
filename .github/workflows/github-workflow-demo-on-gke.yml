@@ -24,17 +24,17 @@ jobs:
         run: |
           ls ${{ github.workspace }}
           
-      - name: 👀 Test isolation
+      - name: 👀 Test workflow isolation
         run: |
           echo whoami $(whoami)
           echo pwd $(pwd)
-          echo existing /tmp:
-          ls -l /tmp
-          touch /tmp/gh_run_${{github.run_id}}
+          
+          echo existing files in ../:
+          ls -l ../
+          touch ../gh_run_${{github.run_id}}
+          
           echo existing Containers
           docker ps
-          echo sleeping for 10 min..
-          docker run --rm alpine sleep 600
           
       - run: docker run --rm hello-world
       - run: echo "🍏 This job's status is ${{ job.status }}."
