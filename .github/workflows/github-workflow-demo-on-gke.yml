@@ -23,6 +23,10 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - run: whoami
+      - name: 👀 Display interesting vars
+        run: |
+          echo "whoami" $(whoami)
+          echo "pwd" $(pwd)
+          touch 1
       - run: docker run --rm hello-world
       - run: echo "🍏 This job's status is ${{ job.status }}."
