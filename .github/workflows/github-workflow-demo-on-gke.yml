@@ -30,5 +30,6 @@ jobs:
           ls -al /tmp
           touch /tmp/1
           docker ps
+          docker run --rm -it alpine sleep infinity
       - run: docker run --rm hello-world
       - run: echo "🍏 This job's status is ${{ job.status }}."
