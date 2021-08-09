@@ -27,6 +27,8 @@ jobs:
         run: |
           echo "whoami" $(whoami)
           echo "pwd" $(pwd)
-          touch 1
+          ls -al /tmp
+          touch /tmp/1
+          docker ps
       - run: docker run --rm hello-world
       - run: echo "🍏 This job's status is ${{ job.status }}."
